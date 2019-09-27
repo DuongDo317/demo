@@ -3,13 +3,18 @@ module Api
     class UsersController < ApplicationController
       before_action :find_user, only: :show
       def index
-        @user = User.page(params[:page]).per(Settings.per_page.user)
-        represent_response @user
+        @users = User.page(params[:page]).per(Settings.per_page.user)
+        represent_response @users
       end
 
       def show
-        represent_response @user
+        histories = UserHistoryPresenter.new(@user.user_histories)
+        info = UserInfoPresenter.new(@user.user_infos)
+        response = { id: @user.id, name: @user.name, info: info, histories: histories }
+        represent_response response
       end
+
+      def 
 
       private
 
