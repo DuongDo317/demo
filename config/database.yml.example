@@ -12,7 +12,7 @@ development:
   database: demo
 test:
   <<: *default
-  database: demo
+  database: demo_test
 
 production:
   <<: *default

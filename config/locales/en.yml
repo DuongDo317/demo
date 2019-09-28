@@ -13,4 +13,7 @@ en:
     error_detail:
       standard_error: Something went wrong with standard errors
       custom_error: Something went wrong with custom errors
-
+  api:
+    v1:
+      users:
+        change_status: "User is %{status}"
